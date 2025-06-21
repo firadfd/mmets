@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../core/global_widget/custom_button.dart';
 import '../../../core/global_widget/custom_text.dart';
+import '../../../core/routes/app_route.dart';
 import '../../../core/utils/asset_path.dart';
 
 class AllowLocationScreen extends StatelessWidget {
@@ -41,13 +44,17 @@ class AllowLocationScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20.h),
                 CustomButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.offAllNamed(AppRoute.mainViewScreen);
+                  },
                   text: "Allow Location Access",
                   textColor: Colors.white,
                 ),
                 SizedBox(height: 20.h),
                 CustomButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.offAllNamed(AppRoute.mainViewScreen);
+                  },
                   text: "Skip for now",
                   fontWeight: FontWeight.w400,
                   fontSize: 14.sp,
