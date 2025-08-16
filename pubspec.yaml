@@ -29,6 +29,7 @@ dependencies:
   shared_preferences: ^2.3.5
   mime: ^2.0.0
   file_picker: ^9.1.0
+  fl_chart: ^1.0.0
 
 dev_dependencies:
   flutter_test:
