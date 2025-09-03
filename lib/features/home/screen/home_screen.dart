@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mmets/core/global_widget/custom_text.dart';
+import 'package:mmets/core/routes/app_route.dart';
 import 'package:mmets/core/utils/asset_path.dart';
 import 'package:mmets/features/home/widget/custom_app_bar.dart';
 import '../controller/home_controller.dart';
@@ -40,10 +41,10 @@ class HomeScreen extends StatelessWidget {
           print('ELD Clicked');
         },
         onMessageClick: () {
-          print('Message Clicked');
+          Get.toNamed(AppRoute.messageScreen);
         },
         onNotificationClick: () {
-          print('Notification Clicked');
+          Get.toNamed(AppRoute.notificationScreen);
         },
       ),
       body: Padding(
@@ -115,7 +116,7 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        print('Edit Note Clicked');
+                        Get.toNamed(AppRoute.formEditScreen);
                       },
                       child: Align(
                         alignment: Alignment.topRight,
