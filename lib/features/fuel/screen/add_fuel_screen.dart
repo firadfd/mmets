@@ -1,8 +1,8 @@
-// add_fuel_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mmets/core/global_widget/custom_appbar.dart';
+import 'package:mmets/core/global_widget/custom_button.dart';
 import 'package:mmets/core/global_widget/custom_text.dart';
 import 'package:mmets/core/utils/asset_path.dart';
 
@@ -122,84 +122,201 @@ class AddFuelScreen extends StatelessWidget {
               SizedBox(height: 10.h),
               Container(
                 decoration: BoxDecoration(
-                  color: Color(0xFFEDEEF4),
-                  borderRadius: BorderRadius.circular(10.r),
+                  color: const Color(0xFFEDEEF4),
+                  borderRadius: BorderRadius.circular(12),
                 ),
-                padding: EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16),
                 child: Column(
                   children: [
-                    Row(
+                    // Date and Time Row with Titles
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: Obx(
-                            () => CustomTextView(
-                              'Date: ${controller.selectedDate.value.toLocal().toString().split(' ')[0]}',
-                              fontSize: 16,
+                        Row(
+                          children: [
+                            Expanded(
+                              child: CustomTextView(
+                                'Date',
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: CustomTextView(
+                                'Time',
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
-                        ElevatedButton(
-                          onPressed: () => controller.selectDate(),
-                          child: Text('Pick Date'),
+                        const SizedBox(height: 4),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: GestureDetector(
+                                onTap: () => controller.selectDate(),
+                                child: Obx(
+                                  () => Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 14,
+                                      horizontal: 12,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        CustomTextView(
+                                          controller.selectedDate.value
+                                              .toLocal()
+                                              .toString()
+                                              .split(' ')[0],
+                                          fontSize: 14,
+                                        ),
+                                        const Icon(
+                                          Icons.calendar_today,
+                                          size: 18,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: GestureDetector(
+                                onTap: () => controller.selectTime(),
+                                child: Obx(
+                                  () => Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 14,
+                                      horizontal: 12,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        CustomTextView(
+                                          controller.selectedTime.value.format(
+                                            context,
+                                          ),
+                                          fontSize: 14,
+                                        ),
+                                        const Icon(Icons.access_time, size: 18),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                    Row(
+                    const SizedBox(height: 12),
+                    // Quantity and Price Row with Titles
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: Obx(
-                            () => CustomTextView(
-                              'Time: ${controller.selectedTime.value.format(context)}',
-                              fontSize: 16,
+                        Row(
+                          children: [
+                            Expanded(
+                              child: CustomTextView(
+                                'Select Quantity',
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                        ),
-                        ElevatedButton(
-                          onPressed: () => controller.selectTime(),
-                          child: CustomTextView('Pick Time'),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Obx(
-                            () => DropdownButton<String>(
-                              value: controller.selectedQuantity.value,
-                              onChanged: (String? newValue) {
-                                if (newValue != null) {
-                                  controller.selectedQuantity.value = newValue;
-                                }
-                              },
-                              items: controller.quantities
-                                  .map<DropdownMenuItem<String>>((
-                                    String value,
-                                  ) {
-                                    return DropdownMenuItem<String>(
-                                      value: value,
-                                      child: CustomTextView(value),
-                                    );
-                                  })
-                                  .toList(),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: CustomTextView(
+                                'Price',
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Obx(
-                            () => CustomTextView(
-                              'Price: ${controller.price.value}',
-                              fontSize: 16,
+                        const SizedBox(height: 4),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Obx(
+                                () => Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 12,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: DropdownButtonHideUnderline(
+                                    child: DropdownButton<String>(
+                                      value: controller.selectedQuantity.value,
+                                      onChanged: (String? newValue) {
+                                        if (newValue != null) {
+                                          controller.selectedQuantity.value =
+                                              newValue;
+                                        }
+                                      },
+                                      items: controller.quantities
+                                          .map<DropdownMenuItem<String>>((
+                                            String value,
+                                          ) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: CustomTextView(value),
+                                            );
+                                          })
+                                          .toList(),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Obx(
+                                () => Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 14,
+                                    horizontal: 12,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: CustomTextView(
+                                    controller.price.value,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
                   ],
                 ),
+              ),
+              SizedBox(height: 10.h),
+              CustomButton(
+                text: "Add",
+                textColor: Colors.white,
+                onPressed: () {
+                  Get.back();
+                },
               ),
             ],
           ),
