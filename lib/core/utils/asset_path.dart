@@ -21,5 +21,6 @@ class AssetPath {
   static const String onDuty = 'assets/icons/on_duty.png';
   static const String sleeping = 'assets/icons/sleep.png';
   static const String driving = 'assets/icons/driving.png';
+  static const String fuel = 'assets/icons/fuel.png';
 
 }

@@ -6,9 +6,12 @@ import '../../features/auth/controller/sign_up_controller.dart';
 import '../../features/forgot_pass/controller/create_new_pass_controller.dart';
 import '../../features/forgot_pass/controller/forgot_pass_controller.dart';
 import '../../features/forgot_pass/controller/verify_forgot_otp_controller.dart';
+import '../../features/fuel/controller/add_fuel_controller.dart';
+import '../../features/fuel/controller/fuel_controller.dart';
 import '../../features/home/controller/form_edit_controller.dart';
 import '../../features/home/controller/message_controller.dart';
 import '../../features/main_view/controller/main_view_controller.dart';
+import '../../features/route/controller/route_controller.dart';
 import '../../features/splash_screen/controller/splash_controller.dart';
 
 class AppBinding extends Bindings {
@@ -25,5 +28,8 @@ class AppBinding extends Bindings {
     Get.lazyPut(() => HomeController(), fenix: true);
     Get.lazyPut(() => MessageController(), fenix: true);
     Get.lazyPut(() => FormEditController(), fenix: true);
+    Get.lazyPut(() => RouteController(), fenix: true);
+    Get.lazyPut(() => FuelController(), fenix: true);
+    Get.lazyPut(() => AddFuelController(), fenix: true);
      }
 }

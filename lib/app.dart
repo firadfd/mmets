@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           getPages: AppRoute.route,
           transitionDuration: const Duration(milliseconds: 200),
           navigatorKey: Get.key,
-          initialRoute: AppRoute.splashScreen,
+          initialRoute: AppRoute.mainViewScreen,
           title: 'PrologELD',
           theme: lightThemeData(),
           darkTheme: darkThemeData(),
