@@ -10,6 +10,7 @@ import 'package:mmets/features/main_view/screen/main_view_screen.dart';
 import '../../features/auth/screen/allow_location_screen.dart';
 import '../../features/forgot_pass/screen/create_new_pass_screen.dart';
 import '../../features/forgot_pass/screen/forgot_pass_screen.dart';
+import '../../features/fuel/screen/add_fuel_screen.dart';
 import '../../features/home/screen/form_edit_screen.dart';
 import '../../features/home/screen/log_preview_screen.dart';
 import '../../features/splash_screen/screen/splash_screen.dart';
@@ -28,6 +29,7 @@ class AppRoute {
   static String messageScreen = "/MessageScreen";
   static String formEditScreen = "/FormEditScreen";
   static String logPreviewScreen = "/LogPreviewScreen";
+  static String addFuelScreen = "/AddFuelScreen";
 
   static List<GetPage> route = [
     GetPage(
@@ -93,6 +95,11 @@ class AppRoute {
     GetPage(
       name: logPreviewScreen,
       page: () => LogPreviewScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: addFuelScreen,
+      page: () => AddFuelScreen(),
       transition: Transition.rightToLeft,
     ),
 
