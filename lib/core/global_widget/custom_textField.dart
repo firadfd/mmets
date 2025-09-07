@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../utils/app_colors.dart';
-
 class CustomTextField extends StatelessWidget {
   final String? hintText;
   final bool isReadonly;
@@ -29,7 +27,7 @@ class CustomTextField extends StatelessWidget {
     return Container(
       height: 52.h,
       decoration: BoxDecoration(
-        color: const Color(0xFFF9F9FB),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(15.r),
         border: Border.all(color: Colors.grey, width: 1),
       ),
@@ -45,8 +43,7 @@ class CustomTextField extends StatelessWidget {
             fontSize: 14.sp,
             fontWeight: FontWeight.w400,
           ),
-          prefixIcon:
-          prefixIcon != null
+          prefixIcon: prefixIcon != null
               ? Icon(prefixIcon, color: Colors.grey)
               : null,
           hintText: hintText,

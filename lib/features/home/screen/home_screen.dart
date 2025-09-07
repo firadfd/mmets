@@ -7,7 +7,6 @@ import 'package:mmets/core/utils/asset_path.dart';
 import 'package:mmets/features/home/widget/custom_app_bar.dart';
 import '../controller/home_controller.dart';
 import '../widget/circular_status_widget.dart';
-import '../widget/log_timeline_painter.dart';
 import '../widget/step_chart.dart';
 
 class HomeScreen extends StatelessWidget {
