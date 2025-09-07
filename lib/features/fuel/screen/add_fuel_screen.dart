@@ -128,7 +128,6 @@ class AddFuelScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(16),
                 child: Column(
                   children: [
-                    // Date and Time Row with Titles
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

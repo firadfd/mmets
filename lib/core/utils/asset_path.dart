@@ -22,5 +22,11 @@ class AssetPath {
   static const String sleeping = 'assets/icons/sleep.png';
   static const String driving = 'assets/icons/driving.png';
   static const String fuel = 'assets/icons/fuel.png';
+  static const String calender = 'assets/icons/calender.png';
+  static const String incident = 'assets/icons/indicent.png';
+  static const String monitor = 'assets/icons/monitor.png';
+  static const String setting = 'assets/icons/setting.png';
+  static const String vehicle = 'assets/icons/vehicle.png';
+  static const String edit = 'assets/icons/edit.png';
 
 }
