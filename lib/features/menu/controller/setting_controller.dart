@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:mmets/core/utils/app_colors.dart';
 
 import '../../../core/global_widget/custom_button.dart';
 import '../../../core/global_widget/custom_text.dart';
@@ -74,15 +75,15 @@ class SettingController extends GetxController {
         shape: BoxShape.circle,
         gradient: RadialGradient(
           colors: [
-            Color(0xFF725CFF).withOpacity(0.1),
-            Color(0xFF725CFF).withOpacity(0.03),
+            AppColors.primaryColor,
+            AppColors.primaryColor,
           ],
           radius: 0.8,
         ),
       ),
       alignment: Alignment.center,
       child: CircleAvatar(
-        backgroundColor: Color(0xFF725CFF),
+        backgroundColor: AppColors.primaryColor,
         radius: 24.r,
         child: Icon(Icons.help_outline, color: Colors.white, size: 28.r),
       ),
