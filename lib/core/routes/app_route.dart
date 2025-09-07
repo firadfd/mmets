@@ -8,12 +8,16 @@ import 'package:mmets/features/home/screen/message_screen.dart';
 import 'package:mmets/features/home/screen/notification_screen.dart';
 import 'package:mmets/features/main_view/screen/main_view_screen.dart';
 import 'package:mmets/features/menu/screen/edit_profile_screen.dart';
+
 import '../../features/auth/screen/allow_location_screen.dart';
 import '../../features/forgot_pass/screen/create_new_pass_screen.dart';
 import '../../features/forgot_pass/screen/forgot_pass_screen.dart';
 import '../../features/fuel/screen/add_fuel_screen.dart';
 import '../../features/home/screen/form_edit_screen.dart';
 import '../../features/home/screen/log_preview_screen.dart';
+import '../../features/menu/screen/privacy_policy_screen.dart';
+import '../../features/menu/screen/setting_screen.dart';
+import '../../features/menu/screen/terms_condition_screen.dart';
 import '../../features/splash_screen/screen/splash_screen.dart';
 
 class AppRoute {
@@ -32,6 +36,9 @@ class AppRoute {
   static String logPreviewScreen = "/LogPreviewScreen";
   static String addFuelScreen = "/AddFuelScreen";
   static String editProfileScreen = "/EditProfileScreen";
+  static String settingScreen = "/SettingScreen";
+  static String termsConditionScreen = "/TermsConditionScreen";
+  static String privacyPolicyScreen = "/PrivacyPolicyScreen";
 
   static List<GetPage> route = [
     GetPage(
@@ -109,7 +116,20 @@ class AppRoute {
       page: () => EditProfileScreen(),
       transition: Transition.rightToLeft,
     ),
-
-
+    GetPage(
+      name: settingScreen,
+      page: () => SettingScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: termsConditionScreen,
+      page: () => TermsConditionScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: privacyPolicyScreen,
+      page: () => PrivacyPolicyScreen(),
+      transition: Transition.rightToLeft,
+    ),
   ];
 }

@@ -120,7 +120,7 @@ class MenuScreen extends StatelessWidget {
                                 title: 'Settings',
                                 imageUrl: AssetPath.setting,
                                 onTap: () {
-                                  print('Card tapped at ${DateTime.now()}');
+                                  Get.toNamed(AppRoute.settingScreen);
                                 },
                               ),
                             ],
