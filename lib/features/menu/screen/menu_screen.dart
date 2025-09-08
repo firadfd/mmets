@@ -113,7 +113,7 @@ class MenuScreen extends StatelessWidget {
                                 title: 'Driver Behavior Monitoring',
                                 imageUrl: AssetPath.monitor,
                                 onTap: () {
-                                  print('Card tapped at ${DateTime.now()}');
+                                  Get.toNamed(AppRoute.driverBehaviorScreen);
                                 },
                               ),
                               CustomCardItem(

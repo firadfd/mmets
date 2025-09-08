@@ -15,6 +15,7 @@ import '../../features/forgot_pass/screen/forgot_pass_screen.dart';
 import '../../features/fuel/screen/add_fuel_screen.dart';
 import '../../features/home/screen/form_edit_screen.dart';
 import '../../features/home/screen/log_preview_screen.dart';
+import '../../features/menu/screen/driver_behavior_screen.dart';
 import '../../features/menu/screen/privacy_policy_screen.dart';
 import '../../features/menu/screen/setting_screen.dart';
 import '../../features/menu/screen/terms_condition_screen.dart';
@@ -39,6 +40,7 @@ class AppRoute {
   static String settingScreen = "/SettingScreen";
   static String termsConditionScreen = "/TermsConditionScreen";
   static String privacyPolicyScreen = "/PrivacyPolicyScreen";
+  static String driverBehaviorScreen = "/DriverBehaviorScreen";
 
   static List<GetPage> route = [
     GetPage(
@@ -129,6 +131,11 @@ class AppRoute {
     GetPage(
       name: privacyPolicyScreen,
       page: () => PrivacyPolicyScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: driverBehaviorScreen,
+      page: () => DriverBehaviorScreen(),
       transition: Transition.rightToLeft,
     ),
   ];
