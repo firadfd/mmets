@@ -19,6 +19,7 @@ import '../../features/menu/screen/driver_behavior_screen.dart';
 import '../../features/menu/screen/privacy_policy_screen.dart';
 import '../../features/menu/screen/setting_screen.dart';
 import '../../features/menu/screen/terms_condition_screen.dart';
+import '../../features/menu/screen/vehicle_maintenance_screen.dart';
 import '../../features/splash_screen/screen/splash_screen.dart';
 
 class AppRoute {
@@ -41,6 +42,7 @@ class AppRoute {
   static String termsConditionScreen = "/TermsConditionScreen";
   static String privacyPolicyScreen = "/PrivacyPolicyScreen";
   static String driverBehaviorScreen = "/DriverBehaviorScreen";
+  static String vehicleMaintenanceScreen = "/VehicleMaintenanceScreen";
 
   static List<GetPage> route = [
     GetPage(
@@ -136,6 +138,11 @@ class AppRoute {
     GetPage(
       name: driverBehaviorScreen,
       page: () => DriverBehaviorScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: vehicleMaintenanceScreen,
+      page: () => VehicleMaintenanceScreen(),
       transition: Transition.rightToLeft,
     ),
   ];

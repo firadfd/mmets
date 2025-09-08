@@ -106,7 +106,7 @@ class MenuScreen extends StatelessWidget {
                                 title: 'Vehicle Maintenance ',
                                 imageUrl: AssetPath.vehicle,
                                 onTap: () {
-                                  print('Card tapped at ${DateTime.now()}');
+                                  Get.toNamed(AppRoute.vehicleMaintenanceScreen);
                                 },
                               ),
                               CustomCardItem(

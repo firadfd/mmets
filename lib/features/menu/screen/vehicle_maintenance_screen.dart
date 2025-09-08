@@ -1,39 +1,51 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mmets/core/global_widget/custom_text.dart';
-import 'package:mmets/features/home/widget/custom_app_bar.dart';
 
-import '../../../core/routes/app_route.dart';
+import '../../../core/global_widget/custom_text.dart';
 import '../../../core/utils/app_colors.dart';
-import '../controller/fuel_controller.dart';
-import '../widget/fuel_item.dart';
+import '../../fuel/screen/fuel_screen.dart';
+import '../../fuel/widget/fuel_item.dart';
+import '../controller/vehicle_maintenance_controller.dart';
+import '../widget/behavior_summary.dart';
 
-class FuelScreen extends StatelessWidget {
-  FuelScreen({super.key});
+class VehicleMaintenanceScreen extends StatelessWidget {
+  VehicleMaintenanceScreen({super.key});
 
-  final FuelController controller = Get.find();
+  final VehicleMaintenanceController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xfff8f9fa),
-      appBar: CustomAppBar(
-        onIconClick: () {
-          print('Icon Clicked');
-        },
-        onEldClick: () {
-          print('ELD Clicked');
-        },
-        onMessageClick: () {
-          Get.toNamed(AppRoute.messageScreen);
-        },
-        onNotificationClick: () {
-          Get.toNamed(AppRoute.notificationScreen);
-        },
+      backgroundColor: Color(0xFFF8F9FA),
+      appBar: AppBar(
+        surfaceTintColor: Colors.white,
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Vehicle Maintenance",
+          style: GoogleFonts.figtree(
+            fontSize: 18.sp,
+            fontWeight: FontWeight.w600,
+            color: AppColors.secondaryColor,
+          ),
+        ),
+        actions: [
+          Container(
+            height: 40.h,
+            width: 40.w,
+            margin: EdgeInsets.only(right: 10.w),
+            decoration: BoxDecoration(
+              color: AppColors.primaryColor,
+              borderRadius: BorderRadius.circular(20.r),
+            ),
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.add, color: Colors.white, size: 24.r),
+            ),
+          ),
+        ],
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -41,6 +53,12 @@ class FuelScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 10.h),
+              CustomTextView(
+                "Next Service",
+                color: const Color(0xFF636F85),
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w500,
+              ),
               Container(
                 height: 250.h,
                 width: double.infinity,
@@ -63,66 +81,56 @@ class FuelScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         CustomTextView(
-                          '46L',
+                          '50',
                           fontSize: 24.sp,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF4CAF50),
+                          color: AppColors.primaryColor,
                         ),
                         CustomTextView(
-                          'TOTAL FUEL',
+                          'Days',
                           fontSize: 14.sp,
                           color: Color(0xff636F85),
                         ),
                       ],
                     ),
-                    Positioned(
-                      left: 20.w,
-                      bottom: 20.h,
-                      child: Row(
-                        children: [
-                          Container(
-                            width: 10.w,
-                            height: 10.w,
-                            color: Color(0xFFB3E5FC),
-                          ),
-                          SizedBox(width: 5.w),
-                          CustomTextView(
-                            '30% Available',
-                            fontSize: 16.sp,
-                            color: Color(0xff636F85),
-                          ),
-                          SizedBox(width: 20.w),
-                          Container(
-                            width: 10.w,
-                            height: 10.w,
-                            color: Color(0xFF4CAF50),
-                          ),
-                          SizedBox(width: 5.w),
-                          CustomTextView(
-                            '70% Fuel Used',
-                            fontSize: 16.sp,
-                            color: Color(0xff636F85),
-                          ),
-                        ],
-                      ),
-                    ),
                   ],
                 ),
               ),
-              SizedBox(height: 15.h),
+              SizedBox(height: 5.h),
+              Container(
+                padding: EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Vehicle Summary',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87,
+                      ),
+                    ),
+                    SizedBox(height: 16.0),
+
+                  ],
+                ),
+              ),
+              SizedBox(height: 5.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomTextView(
-                    "Fuel History",
+                    "Maintenance History ",
                     color: const Color(0xFF2D2D2D),
                     fontSize: 20.sp,
                     fontWeight: FontWeight.w700,
                   ),
                   ElevatedButton(
-                    onPressed: () {
-                      Get.toNamed(AppRoute.addFuelScreen);
-                    },
+                    onPressed: () {},
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         side: BorderSide.none,
@@ -133,7 +141,7 @@ class FuelScreen extends StatelessWidget {
                       padding: EdgeInsets.all(10.r),
                     ),
                     child: Text(
-                      "+ Add Fuel",
+                      "+ Add",
                       textAlign: TextAlign.center,
                       style: GoogleFonts.inter(
                         color: Colors.white,
@@ -164,45 +172,4 @@ class FuelScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-class DoughnutPainter extends CustomPainter {
-  final double usedPercentage;
-  final double availablePercentage;
-
-  DoughnutPainter({
-    required this.usedPercentage,
-    required this.availablePercentage,
-  });
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
-    final radius = size.width / 2;
-    final paint = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 20.0
-      ..strokeCap = StrokeCap.round;
-
-    paint.color = Color(0xFFB3E5FC);
-    canvas.drawArc(
-      Rect.fromCircle(center: center, radius: radius),
-      -pi / 2,
-      2 * pi * availablePercentage,
-      false,
-      paint,
-    );
-
-    paint.color = AppColors.primaryColor;
-    canvas.drawArc(
-      Rect.fromCircle(center: center, radius: radius),
-      -pi / 2 + 2 * pi * availablePercentage,
-      2 * pi * usedPercentage,
-      false,
-      paint,
-    );
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 }
