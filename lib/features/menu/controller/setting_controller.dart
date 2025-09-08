@@ -1,41 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:mmets/core/utils/app_colors.dart';
 
 import '../../../core/global_widget/custom_button.dart';
 import '../../../core/global_widget/custom_text.dart';
 
 class SettingController extends GetxController {
-  void showLogoutBottomSheet(VoidCallback onLogout) {
-    showModalBottomSheet(
+
+  void showLogoutDialog(VoidCallback onLogout) {
+    showDialog(
       context: Get.context!,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(24.r)),
-      ),
-      backgroundColor: Colors.white,
-      isScrollControlled: true,
       builder: (_) {
-        return Padding(
-          padding: EdgeInsets.only(
-            bottom: MediaQuery.of(Get.context!).viewInsets.bottom + 20.h,
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(24.r),
+          ),
+          backgroundColor: Colors.white,
+          contentPadding: EdgeInsets.only(
             left: 20.w,
             right: 20.w,
             top: 30.h,
           ),
-          child: Column(
+          content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              _buildIcon(),
-              SizedBox(height: 30.h),
               CustomTextView(
-                "Are You Sure?",
+                "Logout",
                 color: const Color(0xFF171725),
                 fontSize: 18.sp,
                 fontWeight: FontWeight.w600,
               ),
               SizedBox(height: 12.h),
               CustomTextView(
-                "You’ll need to log in again to access your account.",
+                "Are you sure you want to log out?",
                 color: const Color(0xFF636F85),
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w400,
@@ -54,7 +52,7 @@ class SettingController extends GetxController {
                   ),
                   SizedBox(width: 12.w),
                   Expanded(
-                    child: CustomButton(onPressed: onLogout, text: "Log Out"),
+                    child: CustomButton(onPressed: onLogout, text: "Yes",textColor: Colors.white,),
                   ),
                 ],
               ),
@@ -66,26 +64,4 @@ class SettingController extends GetxController {
     );
   }
 
-  Widget _buildIcon() {
-    return Container(
-      width: 80.w,
-      height: 80.w,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        gradient: RadialGradient(
-          colors: [
-            Color(0xFF725CFF).withOpacity(0.1),
-            Color(0xFF725CFF).withOpacity(0.03),
-          ],
-          radius: 0.8,
-        ),
-      ),
-      alignment: Alignment.center,
-      child: CircleAvatar(
-        backgroundColor: Color(0xFF725CFF),
-        radius: 24.r,
-        child: Icon(Icons.help_outline, color: Colors.white, size: 28.r),
-      ),
-    );
-  }
 }

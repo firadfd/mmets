@@ -43,7 +43,7 @@ class SettingScreen extends StatelessWidget {
                 SizedBox(height: 20.h),
                 InkWell(
                   onTap: () {
-                    controller.showLogoutBottomSheet(() {});
+                    controller.showLogoutDialog(() {});
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
