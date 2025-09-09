@@ -11,6 +11,10 @@ import '../../features/fuel/controller/fuel_controller.dart';
 import '../../features/home/controller/form_edit_controller.dart';
 import '../../features/home/controller/message_controller.dart';
 import '../../features/main_view/controller/main_view_controller.dart';
+import '../../features/menu/controller/add_fuel_info_controller.dart';
+import '../../features/menu/controller/add_maintenance_controller.dart';
+import '../../features/menu/controller/add_trip_controller.dart';
+import '../../features/menu/controller/dispatch_schedule_controller.dart';
 import '../../features/menu/controller/driver_behavior_controller.dart';
 import '../../features/menu/controller/edit_profile_controller.dart';
 import '../../features/menu/controller/menu_option_controller.dart';
@@ -41,5 +45,9 @@ class AppBinding extends Bindings {
     Get.lazyPut(() => SettingController(), fenix: true);
     Get.lazyPut(() => DriverBehaviorController(), fenix: true);
     Get.lazyPut(() => VehicleMaintenanceController(), fenix: true);
+    Get.lazyPut(() => AddMaintenanceController(), fenix: true);
+    Get.lazyPut(() => AddFuelInfoController(), fenix: true);
+    Get.lazyPut(() => DispatchScheduleController(), fenix: true);
+    Get.lazyPut(() => AddTripController(), fenix: true);
      }
 }
