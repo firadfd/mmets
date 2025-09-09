@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mmets/core/routes/app_route.dart';
 
 import '../../../core/global_widget/custom_text.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../fuel/screen/fuel_screen.dart';
-import '../../fuel/widget/fuel_item.dart';
 import '../controller/vehicle_maintenance_controller.dart';
-import '../widget/behavior_summary.dart';
+import '../widget/engine_widget.dart';
+import '../widget/maintenance_item.dart';
 
 class VehicleMaintenanceScreen extends StatelessWidget {
   VehicleMaintenanceScreen({super.key});
@@ -41,7 +42,9 @@ class VehicleMaintenanceScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(20.r),
             ),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed(AppRoute.addMaintenanceScreen);
+              },
               icon: Icon(Icons.add, color: Colors.white, size: 24.r),
             ),
           ),
@@ -96,8 +99,9 @@ class VehicleMaintenanceScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 5.h),
+              SizedBox(height: 10.h),
               Container(
+                width: double.infinity,
                 padding: EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -106,20 +110,121 @@ class VehicleMaintenanceScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    CustomTextView(
                       'Vehicle Summary',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black87,
-                      ),
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
                     ),
-                    SizedBox(height: 16.0),
-
+                    SizedBox(height: 8.h),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomTextView(
+                          'Name',
+                          fontSize: 14.sp,
+                          color: Color(0xFF636F85),
+                          fontWeight: FontWeight.w400,
+                        ),
+                        CustomTextView(
+                          '10000',
+                          fontSize: 14.sp,
+                          color: Color(0xFF2D2D2D),
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 8.h),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomTextView(
+                          'License Number',
+                          fontSize: 14.sp,
+                          color: Color(0xFF636F85),
+                          fontWeight: FontWeight.w400,
+                        ),
+                        CustomTextView(
+                          ' TSi 24552020',
+                          fontSize: 14.sp,
+                          color: Color(0xFF2D2D2D),
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 8.h),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomTextView(
+                          'Model',
+                          fontSize: 14.sp,
+                          color: Color(0xFF636F85),
+                          fontWeight: FontWeight.w400,
+                        ),
+                        CustomTextView(
+                          'T-5256',
+                          fontSize: 14.sp,
+                          color: Color(0xFF2D2D2D),
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 8.h),
                   ],
                 ),
               ),
-              SizedBox(height: 5.h),
+              SizedBox(height: 10.h),
+              Container(
+                width: double.infinity,
+                padding: EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                child: SizedBox(
+                  height: 290.h,
+                  child: GridView.count(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 5.w,
+                    mainAxisSpacing: 5.h,
+                    childAspectRatio: 0.75,
+                    children: [
+                      EngineWidget(
+                        icon: Icons.settings_outlined,
+                        title: 'Engine',
+                        temperature: '205°F',
+                      ),
+                      EngineWidget(
+                        icon: Icons.battery_saver_sharp,
+                        title: 'Battery',
+                        temperature: '13.5 V',
+                      ),
+                      EngineWidget(
+                        icon: Icons.error_outline,
+                        title: 'Error Log',
+                        temperature: 'P104',
+                      ),
+                      EngineWidget(
+                        icon: Icons.circle_outlined,
+                        title: 'Brake pad',
+                        temperature: '25%',
+                      ),
+                      EngineWidget(
+                        icon: Icons.electric_bolt_outlined,
+                        title: 'ABS',
+                        temperature: 'OK',
+                      ),
+                      EngineWidget(
+                        icon: Icons.ac_unit_outlined,
+                        title: 'AC',
+                        temperature: '75°F',
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 10.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -130,7 +235,9 @@ class VehicleMaintenanceScreen extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed(AppRoute.addMaintenanceScreen);
+                    },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         side: BorderSide.none,
@@ -158,11 +265,11 @@ class VehicleMaintenanceScreen extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: 10,
                 itemBuilder: (context, index) {
-                  return FuelItem(
-                    liters: '20L',
-                    dateTime: '24/04/2025 - 13:00',
-                    stationName: 'Feal Station Name',
-                    cost: '\$120',
+                  return MaintenanceItem(
+                    id: 'DM TA-11-5578',
+                    type: 'Transit Van • Truck',
+                    dateTime: '12 July 25 • 11:00 am',
+                    price: '\$480',
                   );
                 },
               ),
