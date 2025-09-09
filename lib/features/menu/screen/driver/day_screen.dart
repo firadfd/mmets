@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../controller/driver_behavior_controller.dart';
-import '../widget/behavior_summary.dart';
-import '../widget/custom_metric_item.dart';
+import '../../controller/driver_behavior_controller.dart';
+import '../../widget/behavior_summary.dart';
+import '../../widget/custom_metric_item.dart';
 
-class MonthScreen extends StatelessWidget {
-  MonthScreen({super.key});
+
+
+class DayScreen extends StatelessWidget {
+  DayScreen({super.key});
 
   final DriverBehaviorController controller = Get.find();
 

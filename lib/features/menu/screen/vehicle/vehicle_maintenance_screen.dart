@@ -4,12 +4,12 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mmets/core/routes/app_route.dart';
 
-import '../../../core/global_widget/custom_text.dart';
-import '../../../core/utils/app_colors.dart';
-import '../../fuel/screen/fuel_screen.dart';
-import '../controller/vehicle_maintenance_controller.dart';
-import '../widget/engine_widget.dart';
-import '../widget/maintenance_item.dart';
+import '../../../../core/global_widget/custom_text.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../fuel/screen/fuel_screen.dart';
+import '../../controller/vehicle_maintenance_controller.dart';
+import '../../widget/engine_widget.dart';
+import '../../widget/maintenance_item.dart';
 
 class VehicleMaintenanceScreen extends StatelessWidget {
   VehicleMaintenanceScreen({super.key});

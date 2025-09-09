@@ -92,7 +92,7 @@ class MenuScreen extends StatelessWidget {
                                 title: 'Dispatch & Scheduling',
                                 imageUrl: AssetPath.calender,
                                 onTap: () {
-                                  print('Card tapped at ${DateTime.now()}');
+                                  Get.toNamed(AppRoute.dispatchScheduleScreen);
                                 },
                               ),
                               CustomCardItem(
@@ -106,7 +106,9 @@ class MenuScreen extends StatelessWidget {
                                 title: 'Vehicle Maintenance ',
                                 imageUrl: AssetPath.vehicle,
                                 onTap: () {
-                                  Get.toNamed(AppRoute.vehicleMaintenanceScreen);
+                                  Get.toNamed(
+                                    AppRoute.vehicleMaintenanceScreen,
+                                  );
                                 },
                               ),
                               CustomCardItem(

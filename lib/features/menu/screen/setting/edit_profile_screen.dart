@@ -6,11 +6,11 @@ import 'package:mmets/core/global_widget/custom_appbar.dart';
 import 'package:mmets/core/utils/app_colors.dart';
 import 'package:mmets/core/utils/asset_path.dart';
 
-import '../../../core/global_widget/circular_progress_indicator.dart';
-import '../../../core/global_widget/custom_button.dart';
-import '../../../core/global_widget/custom_text.dart';
-import '../../../core/global_widget/custom_textField.dart';
-import '../controller/edit_profile_controller.dart';
+import '../../../../core/global_widget/circular_progress_indicator.dart';
+import '../../../../core/global_widget/custom_button.dart';
+import '../../../../core/global_widget/custom_text.dart';
+import '../../../../core/global_widget/custom_textField.dart';
+import '../../controller/edit_profile_controller.dart';
 
 class EditProfileScreen extends StatelessWidget {
   EditProfileScreen({super.key});

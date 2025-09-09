@@ -3,10 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mmets/core/global_widget/custom_appbar.dart';
 
-import '../../../core/global_widget/custom_text.dart';
-import '../../../core/routes/app_route.dart';
-import '../controller/setting_controller.dart';
-import '../widget/profile_item.dart';
+import '../../../../core/global_widget/custom_text.dart';
+import '../../../../core/routes/app_route.dart';
+import '../../controller/setting_controller.dart';
+import '../../widget/profile_item.dart';
+
+
 
 class SettingScreen extends StatelessWidget {
   SettingScreen({super.key});

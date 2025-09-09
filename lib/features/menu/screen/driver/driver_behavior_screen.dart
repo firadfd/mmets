@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:mmets/core/global_widget/custom_text.dart';
-import 'package:mmets/features/menu/screen/week_screen.dart';
+import 'package:mmets/features/menu/screen/driver/week_screen.dart';
 
-import '../../../core/utils/app_colors.dart';
-import '../controller/driver_behavior_controller.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../controller/driver_behavior_controller.dart';
 import 'day_screen.dart';
 import 'month_screen.dart';
 

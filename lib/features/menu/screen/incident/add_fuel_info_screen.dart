@@ -5,10 +5,10 @@ import 'package:get/get.dart';
 import 'package:mmets/core/global_widget/custom_appbar.dart';
 import 'package:mmets/core/utils/app_colors.dart';
 
-import '../../../core/global_widget/custom_button.dart';
-import '../../../core/global_widget/custom_text.dart';
-import '../../../core/global_widget/custom_textField.dart';
-import '../controller/add_fuel_info_controller.dart';
+import '../../../../core/global_widget/custom_button.dart';
+import '../../../../core/global_widget/custom_text.dart';
+import '../../../../core/global_widget/custom_textField.dart';
+import '../../controller/add_fuel_info_controller.dart';
 
 class AddFuelInfoScreen extends StatelessWidget {
   AddFuelInfoScreen({super.key});

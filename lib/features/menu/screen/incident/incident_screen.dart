@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../../core/global_widget/custom_text.dart';
-import '../../../core/routes/app_route.dart';
-import '../../../core/utils/app_colors.dart';
-import '../../../core/utils/asset_path.dart';
-import '../widget/custom_color_app_bar.dart';
-import '../widget/incident_item.dart';
+import '../../../../core/global_widget/custom_text.dart';
+import '../../../../core/routes/app_route.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/asset_path.dart';
+import '../../widget/custom_color_app_bar.dart';
+import '../../widget/incident_item.dart';
 
 class IncidentScreen extends StatelessWidget {
   IncidentScreen({super.key});

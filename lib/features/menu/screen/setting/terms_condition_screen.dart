@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/global_widget/custom_appbar.dart';
-import '../../../core/global_widget/custom_text.dart';
+import '../../../../core/global_widget/custom_appbar.dart';
+import '../../../../core/global_widget/custom_text.dart';
 
 class TermsConditionScreen extends StatelessWidget {
   const TermsConditionScreen({super.key});
