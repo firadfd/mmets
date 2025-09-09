@@ -99,7 +99,7 @@ class MenuScreen extends StatelessWidget {
                                 title: 'Incident & Accident Report',
                                 imageUrl: AssetPath.incident,
                                 onTap: () {
-                                  print('Card tapped at ${DateTime.now()}');
+                                  Get.toNamed(AppRoute.incidentScreen);
                                 },
                               ),
                               CustomCardItem(

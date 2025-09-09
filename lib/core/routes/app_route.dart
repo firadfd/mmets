@@ -15,8 +15,10 @@ import '../../features/forgot_pass/screen/forgot_pass_screen.dart';
 import '../../features/fuel/screen/add_fuel_screen.dart';
 import '../../features/home/screen/form_edit_screen.dart';
 import '../../features/home/screen/log_preview_screen.dart';
+import '../../features/menu/screen/add_fuel_info_screen.dart';
 import '../../features/menu/screen/add_maintenance_screen.dart';
 import '../../features/menu/screen/driver_behavior_screen.dart';
+import '../../features/menu/screen/incident_screen.dart';
 import '../../features/menu/screen/privacy_policy_screen.dart';
 import '../../features/menu/screen/setting_screen.dart';
 import '../../features/menu/screen/terms_condition_screen.dart';
@@ -45,6 +47,8 @@ class AppRoute {
   static String driverBehaviorScreen = "/DriverBehaviorScreen";
   static String vehicleMaintenanceScreen = "/VehicleMaintenanceScreen";
   static String addMaintenanceScreen = "/AddMaintenanceScreen";
+  static String incidentScreen = "/IncidentScreen";
+  static String addFuelInfoScreen = "/AddFuelInfoScreen";
 
   static List<GetPage> route = [
     GetPage(
@@ -150,6 +154,16 @@ class AppRoute {
     GetPage(
       name: addMaintenanceScreen,
       page: () => AddMaintenanceScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: incidentScreen,
+      page: () => IncidentScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: addFuelInfoScreen,
+      page: () => AddFuelInfoScreen(),
       transition: Transition.rightToLeft,
     ),
   ];

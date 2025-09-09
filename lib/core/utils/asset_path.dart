@@ -29,5 +29,6 @@ class AssetPath {
   static const String vehicle = 'assets/icons/vehicle.png';
   static const String edit = 'assets/icons/edit.png';
   static const String truck = 'assets/icons/truck.png';
+  static const String frame = 'assets/icons/frame.png';
 
 }
